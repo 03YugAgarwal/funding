@@ -1,9 +1,8 @@
 .nav{
     display: flex;
     align-items: center;
-
-    border-bottom: 2px solid black;
-
+    z-index: 1;
+    height: 10vh;
 }
 .navLogo{
     margin-left: 5%;
@@ -16,7 +15,8 @@
 }
 .navLogo a{
     text-decoration: none;
-    color: #000;
+    color: black;
+    /* color: #000; */
 }
 
 .navItems{
@@ -39,5 +39,6 @@
 
 .navItem a{
     text-decoration: none;
-    color: #000;
+    /* color: #000; */
+    color: black;
 }
