@@ -1,0 +1,25 @@
+.container {
+  height: 15vw;
+  width: 80%;
+  border: 1px solid black;
+  margin-bottom: 20px;
+}
+
+.parent {
+  height: 20px;
+  background-color: whitesmoke;
+  border-radius: 40;
+  border: 1px solid black;
+  margin: 50;
+}
+.child {
+  height: 100%;
+  background-color: orange;
+  border-radius: 40;
+  margin: 50;
+}
+.amountText{
+    font-size: 20px;
+    font-weight: 700;
+    width: 100%;
+}

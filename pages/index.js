@@ -2,7 +2,6 @@ import Head from 'next/head'
 import Hero from '@/components/Hero'
 import Donation from '@/components/Donations/Donation'
 
-
 export default function Home() {
   return (
     <>
