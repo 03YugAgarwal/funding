@@ -1,10 +1,12 @@
+import { useSession } from "next-auth/react";
 import React, { useRef } from "react";
 
 const NewFunding = () => {
   const titleRef = useRef();
   const descRef = useRef();
   const goalRef = useRef();
-  const imageRef = useRef();
+
+  const { data: session } = useSession();
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -12,7 +14,8 @@ const NewFunding = () => {
     const title = titleRef.current.value;
     const description = descRef.current.value;
     const goal = goalRef.current.value;
-    const image = imageRef.current.value;
+
+    let email = session.user.email
 
     const res = await fetch("/api/fund/newFund", {
       method: "POST",
@@ -23,28 +26,33 @@ const NewFunding = () => {
         title,
         description,
         goal,
-        image
-      })
+        email
+      }),
     });
 
     const data = await res.json();
-    console.log(data);
-
+    alert('Success')
   };
 
-  return (
-    <form onSubmit={handleFormSubmit}>
-      <label htmlFor="">Title</label>
-      <input type="text" ref={titleRef} />
-      <label htmlFor="">Description</label>
-      <input type="text" ref={descRef} />
-      <label htmlFor="">Goal</label>
-      <input type="text" ref={goalRef} />
-      <label htmlFor="">Image</label>
-      <input type="text" ref={imageRef} />
-      <button>Submit</button>
-    </form>
-  );
+  let component;
+
+  if (!session) {
+    component = <div>Sign in to create a fund</div>;
+  } else {
+    component = (
+      <form onSubmit={handleFormSubmit}>
+        <label htmlFor="">Title</label>
+        <input type="text" ref={titleRef} />
+        <label htmlFor="">Description</label>
+        <input type="text" ref={descRef} />
+        <label htmlFor="">Goal</label>
+        <input type="text" ref={goalRef} />
+        <button>Submit</button>
+      </form>
+    );
+  }
+
+  return <>{component}</>;
 };
 
 export default NewFunding;

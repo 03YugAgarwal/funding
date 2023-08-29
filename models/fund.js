@@ -4,7 +4,10 @@ const fundSchema = new Schema({
   title: String,
   description: String,
   goal: Number,
-  image: String,
+  email: {
+    type: String,
+    required: true
+  },
   amount: {
     type: Number,
     default: 0,
