@@ -9,9 +9,6 @@ import connectMongo from "@/lib/database";
 const FundingDetails = (props) => {
   const router = useRouter();
 
-  const val = 123;
-  const max = 200;
-
   const {title, description, goal, amount} = props.fund
 
   return (
