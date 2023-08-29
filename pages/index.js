@@ -3,7 +3,7 @@ import Hero from '@/components/Hero'
 import Donation from '@/components/Donations/Donation'
 
 import mongoose from "mongoose";
-let Fund = mongoose.model("Fund");
+import Fund from '@/models/fund'; 
 import connectMongo from "@/lib/database";
 
 export default function Home(props) {
