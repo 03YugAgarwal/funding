@@ -12,6 +12,7 @@ export default function Navbar() {
         </div>
         <div className={styles.navItems}>
             <ul className={styles.navItem}>
+                <li><Link href="/funding">Create Funding</Link></li>
                 <li><Link href="/login">Login</Link></li>
                 <li><Link href="/signup">Sign Up</Link></li>
             </ul>
