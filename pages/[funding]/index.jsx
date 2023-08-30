@@ -9,16 +9,32 @@ import { useSession } from "next-auth/react";
 
 const FundingDetails = (props) => {
   const router = useRouter();
-  const {title, description, goal, amount, email} = props.fund
+  const { title, description, goal, amount, email } = props.fund;
 
-  const {data: session} =useSession()
+  const { data: session } = useSession();
 
-  // let Semail = ''
-
-  // useEffect(()=>{
-  //   Semail = session?.user?.email
-
-  // },[])
+  const handleFundingDelete = () => {
+    if (!session) {
+      return;
+    }
+    if (session?.user?.email === email) {
+      if (confirm("Are you sure you want to delete this?") == true) {
+        fetch("/api/fund/deleteFund", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            _id: router.query.funding,
+          }),
+        }).then((res) => {
+          router.push("/");
+        });
+      } else {
+        alert("Access Denied");
+      }
+    }
+  };
 
   return (
     <section className={styles.container}>
@@ -35,13 +51,19 @@ const FundingDetails = (props) => {
         </div>
       </div>
       <button onClick={() => router.push("/")}>Back to Funding</button>
-      { (session?.user?.email === email) &&  <button onClick={()=> router.push(router.query.funding+'/edit')}>Edit</button>}
+      {session?.user?.email === email && (
+        <button onClick={() => router.push(router.query.funding + "/edit")}>
+          Edit
+        </button>
+      )}
+      {session?.user?.email === email && (
+        <button onClick={handleFundingDelete}>Delete</button>
+      )}
     </section>
   );
 };
 
 export async function getServerSideProps(context) {
-
   const { params } = context;
 
   try {
