@@ -4,7 +4,7 @@ const stripeClient = new stripe(stripeSecretKey);
 
 export default async function handler(req, res) {
   try {
-    const redirectURL = `http://localhost:3000/${req.body.item._id}`;
+    const redirectURL = `https://funding-chhm3gnok-03yugagarwal.vercel.app/${req.body.item._id}`;
 
     const { item } = req.body;
 
