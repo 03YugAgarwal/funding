@@ -1,14 +1,45 @@
 .container {
-  height: 15vw;
+  height: 20vw;
   width: 80%;
-  border: 1px solid black;
   margin-bottom: 20px;
+  /* border: 1px solid black; */
+  border-radius: 16px;
+  box-shadow: 0px 0px 16px black;
+  background-color: white;
 }
+
+.container h1{
+  margin-left: 5%
+}
+.container p{
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.super{
+  width: 90%;
+  margin: auto;
+}
+
+.container button{
+  width: 150px;
+  height: 50px;
+  border-radius: 8px;
+  background-color: #FFB800;
+  border: none;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  margin-left: 5%;
+  margin-top: 20px;
+}
+
+
 
 .parent {
   height: 20px;
-  background-color: whitesmoke;
-  border-radius: 40;
+  background-color: #fff8e6;
+  border-radius: 40px;
   border: 1px solid black;
   margin: 50;
 }

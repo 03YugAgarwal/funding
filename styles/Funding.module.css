@@ -1,18 +1,28 @@
 .container {
-  height: 100%;
-  width: 100%;
+  height: 40vw;
+  width: 80%;
+  margin: auto;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  border-radius: 16px;
+  box-shadow: 0px 0px 16px black;
+
+  background-color: white;
+}
+.container p{
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 .parent {
   height: 20px;
-  width: 50%;
-  background-color: whitesmoke;
-  border-radius: 40;
+  width: 80%;
+  background-color: #fff8e6;
+  border-radius: 40px;
   border: 1px solid black;
   margin: 50;
 }
@@ -22,9 +32,38 @@
   border-radius: 40;
   margin: 50;
 }
-
 .amountText{
     font-size: 20px;
     font-weight: 700;
     width: 100%;
+}
+
+.container button{
+  width: 150px;
+  height: 50px;
+  border-radius: 8px;
+  background-color: #FFB800;
+  border: none;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 20px;
+
+  cursor: pointer;
+}
+.input{
+  width: 10%;
+  height: 30px;
+  border-radius: 8px;
+  background-color: #fff8e6;
+  color: black;
+  font-size: 16px;
+  font-weight: 500;
+  padding-left: 10px;
+}
+
+.container button:disabled{
+  background-color: #fff8e6;
+  color: black;
+  cursor:not-allowed;
 }

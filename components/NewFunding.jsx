@@ -1,6 +1,8 @@
 import { useSession } from "next-auth/react";
 import React, { useRef } from "react";
 
+import styles from "./NewFunding.module.css";
+
 const NewFunding = () => {
   const titleRef = useRef();
   const descRef = useRef();
@@ -15,7 +17,7 @@ const NewFunding = () => {
     const description = descRef.current.value;
     const goal = goalRef.current.value;
 
-    let email = session.user.email
+    let email = session.user.email;
 
     const res = await fetch("/api/fund/newFund", {
       method: "POST",
@@ -26,12 +28,12 @@ const NewFunding = () => {
         title,
         description,
         goal,
-        email
+        email,
       }),
     });
 
     const data = await res.json();
-    alert('Success')
+    alert("Success");
   };
 
   let component;
@@ -40,13 +42,25 @@ const NewFunding = () => {
     component = <div>Sign in to create a fund</div>;
   } else {
     component = (
-      <form onSubmit={handleFormSubmit}>
-        <label htmlFor="">Title</label>
-        <input type="text" ref={titleRef} />
-        <label htmlFor="">Description</label>
-        <input type="text" ref={descRef} />
-        <label htmlFor="">Goal</label>
-        <input type="text" ref={goalRef} />
+      <form className={styles.form} onSubmit={handleFormSubmit}>
+        <div className={styles.pair}>
+          <label htmlFor="">Title</label>
+          <div className={styles.inputDiv}>
+            <input type="text" ref={titleRef} placeholder="Raising funding for ..." />
+          </div>
+        </div>
+        <div className={styles.pair}>
+          <label htmlFor="">Description</label>
+          <div className={styles.inputDiv}>
+            <input type="text" ref={descRef} placeholder="I want to raise this fund for ..., in .... days" />
+          </div>
+        </div>
+        <div className={styles.pair}>
+          <label htmlFor="">Goal (in INR)</label>
+          <div className={styles.inputDiv}>
+            <input type="text" ref={goalRef} placeholder="1000"  />
+          </div>
+        </div>
         <button>Submit</button>
       </form>
     );

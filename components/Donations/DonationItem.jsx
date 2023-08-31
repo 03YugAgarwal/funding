@@ -10,14 +10,16 @@ const DonationItem = (props) => {
     <div className={styles.container}>
       <h1>{props.title}</h1>
       <p>{props.description}</p>
-      <div className={styles.parent}>
-        <div
-          className={styles.child}
-          style={{ width: `${(props.val / props.max) * 100}%` }}
-        >
-          <span className={styles.amountText}>
-            {props.val}/{props.max}
-          </span>
+      <div className={styles.super}>
+        <div className={styles.parent}>
+          <div
+            className={styles.child}
+            style={{ width: `${(props.val / props.max) * 100}%` }}
+          >
+            <div className={styles.amountText}>
+              {props.val}/{props.max}
+            </div>
+          </div>
         </div>
       </div>
       <button onClick={() => router.push(`/${props.id}`)}>Show Details</button>

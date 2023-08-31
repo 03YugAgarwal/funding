@@ -88,7 +88,7 @@ const FundingDetails = (props) => {
       </div>
 
       <h1>Donate: </h1>
-      <input type="text" value={donationAmount} onChange={(e)=>setDonationAmout(e.target.value)} />
+      <input type="text" value={donationAmount} onChange={(e)=>setDonationAmout(e.target.value)} className={styles.input} />
       <button disabled={donationAmount <= 0} onClick={createCheckOutSession}>{loading ? 'Processing' : 'Donate'}</button>
 
       <button onClick={() => router.push("/")}>Back to Funding</button>
