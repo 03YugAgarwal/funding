@@ -8,7 +8,9 @@ const stripePromise = loadStripe(publishableKey);
 import axios from 'axios';
 
 import mongoose from "mongoose";
-let Fund = mongoose.model("Fund");
+
+import Fund from "@/models/fund";
+
 import connectMongo from "@/lib/database";
 import { useSession } from "next-auth/react";
 
