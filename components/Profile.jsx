@@ -3,6 +3,8 @@ import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import DonationItem from "./Donations/DonationItem";
 
+import styles from './Login.module.css'
+
 const Profile = () => {
   
     const { data: session } = useSession();
@@ -44,13 +46,13 @@ const Profile = () => {
 
   
     return (
-    <>
-      <div>Profile</div>
-      <button onClick={handleSignOut}>Sign Out</button>
+    <div className={styles.container}>
+      <div className={styles.title} >Profile</div>
+      <button onClick={handleSignOut} className={styles.signButton}  >Sign Out</button>
       {value.fund?.map((item)=>{
         return <DonationItem key={item._id} title={item.title} description={item.description} max={item.goal} val={item.amount} id={item._id} />
       })}
-    </>
+    </div>
   );
 };
 

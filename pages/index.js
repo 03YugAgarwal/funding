@@ -5,6 +5,7 @@ import Donation from '@/components/Donations/Donation'
 import mongoose from "mongoose";
 import Fund from '@/models/fund'; 
 import connectMongo from "@/lib/database";
+import Footer from '@/components/Footer';
 
 export default function Home(props) {
 
@@ -20,6 +21,7 @@ export default function Home(props) {
         <Hero />
       </main>
       <Donation funds={props.funds}/>
+      <Footer />
     </>
   )
 }

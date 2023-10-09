@@ -15,10 +15,9 @@ const DonationItem = (props) => {
           <div
             className={styles.child}
             style={{ width: `${(props.val / props.max) * 100}%` }}
-          >
-            <div className={styles.amountText}>
-              {props.val}/{props.max}
-            </div>
+          ></div>
+          <div className={styles.amountText}>
+            {props.val}/{props.max}
           </div>
         </div>
       </div>
